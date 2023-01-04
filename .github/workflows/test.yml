@@ -1,0 +1,10 @@
+name: A workflow for pushes
+
+on: push
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print a message
+        run: echo "New push!"
