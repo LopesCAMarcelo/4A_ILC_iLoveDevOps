@@ -12,7 +12,7 @@ Nous allons utilisé Python comme language qui un langage de programmation inter
 ## Exercice 1
 
 ### Section 1
-
+[![poule!](https://github.com/LopesCAMarcelo/4A_ILC_iLoveDevOps/actions/workflows/el_pypy.yml/badge.svg)](https://github.com/LopesCAMarcelo/4A_ILC_iLoveDevOps/actions/workflows/el_pypy.yml)
 
 
 [![ForTheBadge built-with-love](http://ForTheBadge.com/images/badges/built-with-love.svg)](https://GitHub.com/Naereen/)
