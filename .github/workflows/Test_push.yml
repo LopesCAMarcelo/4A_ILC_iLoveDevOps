@@ -21,4 +21,5 @@ jobs:
     steps:
       # Runs a single command using the runners shell
       - name: Echo on push
-        run: Echo on push
+        run: echo "New push !"
+ 
