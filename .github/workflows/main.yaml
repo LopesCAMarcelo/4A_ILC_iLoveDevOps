@@ -1,0 +1,4 @@
+name: workflow_automated
+on:
+  push:
+    run: echo "New Push !"
