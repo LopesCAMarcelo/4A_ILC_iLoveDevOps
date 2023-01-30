@@ -1,7 +1,9 @@
 name: triggered_at_build
 
 on:
-	workflow_dispatch:
+	push:
+		branches:
+			-  "main"
 
 jobs:
 	build:
