@@ -12,7 +12,6 @@ Nous allons utilisé Python comme language qui un langage de programmation inter
 ## Exercice 1
 
 ### Section 1
-[![poule!](https://github.com/LopesCAMarcelo/4A_ILC_iLoveDevOps/actions/workflows/el_pypy.yml/badge.svg)](https://github.com/LopesCAMarcelo/4A_ILC_iLoveDevOps/actions/workflows/el_pypy.yml)
 [![to_the_moon](https://github.com/LopesCAMarcelo/4A_ILC_iLoveDevOps/actions/workflows/blank.yml/badge.svg)](https://github.com/LopesCAMarcelo/4A_ILC_iLoveDevOps/actions/workflows/blank.yml)
 [![workflows_is_triggering_on_push](https://github.com/LopesCAMarcelo/4A_ILC_iLoveDevOps/actions/workflows/on_push_workflow.yml/badge.svg)](https://github.com/LopesCAMarcelo/4A_ILC_iLoveDevOps/actions/workflows/on_push_workflow.yml)
 
