@@ -1,7 +1,9 @@
+import sys
 from flask import Flask
 from models.personne import Personne
+from datetime import datetime
 import csv
-import datetime
+
 import hashlib
 
 app = Flask(__name__)
@@ -34,8 +36,11 @@ def easyFunc():
 		liste_to_show.append(str(elt.id) + " -> " + elt.nom + " " + elt.prenom + " possede " + str(elt.solde) + "euros.\n")
 	return liste_to_show
  
-@app.route('/transaction-<p1>-<p2>-<somme>', methods=['PUT'])
+@app.route('/transaction-<p1>-<p2>-<somme>', methods=['PUT','GET'])
 def transaction(p1,p2,somme):
+	p1 = int(p1)
+	p2 = int(p2)
+	somme = int(somme)
 	doesClient1Exist = False
 	doesClient2Exist = False
 	for elt in liste_de_clients:
@@ -46,15 +51,15 @@ def transaction(p1,p2,somme):
 			client2 = elt
 			doesClient2Exist = True
 	if doesClient1Exist and doesClient2Exist and client1.solde > somme:
-		t = datetime.strptime(datetime.datetime.now(), "%Y-%m-%d %H:%M:%S")
+		t = datetime.now()
 		s = somme
-		transac = (Client1, Client2, t, s)
+		transac = (client1, client2, t, s)
 		h = hashlib.sha256(str(transac).encode()).hexdigest()
 
 		client1.solde -= s
 		client2.solde += s
-		liste_transaction_personnes.append([p1,p2])
-		liste_transaction.append(p1.nom + " " + p1.prenom + " a envoyé " + str(somme) + " à " + p2.nom + " " + p2.prenom + "hash: " + str(h) + ", t: "+ str(t) + ".")
+		liste_transaction_personnes.append([client1.id,client2.id])
+		liste_transaction.append(client1.nom + " " + client1.prenom + " a envoye " + str(somme) + " a " + client2.nom + " " + client2.prenom + " hash: " + str(h) + ", t: "+ str(t) + ".")
 		return "Transaction done !"
 	elif doesClient1Exist and doesClient2Exist:
 		return "Not enough money !"
@@ -69,8 +74,9 @@ def transaction(p1,p2,somme):
 def affichage_transactions():
 	return liste_transaction
 
-@app.route('/affiche-transactions-<p>', methods=['GET'])
+@app.route('/affiche-transactions-<p>', methods=['GET','PUT'])
 def affichage_transactions_client(p):
+	p = int(p)
 	liste_transaction_client_index = []
 	liste_transaction_client = []
 	for i in range(len(liste_transaction_personnes)):
@@ -78,13 +84,18 @@ def affichage_transactions_client(p):
 			liste_transaction_client_index.append(i)
 	for index in liste_transaction_client_index :
 		liste_transaction_client.append(liste_transaction[index])
+	return liste_transaction_client
 
-@app.route('/affiche-solde-<p>', methods = ['GET'])
+@app.route('/affiche-solde-<p>', methods=['GET','PUT'])
 def affichage_solde(p):
-	return p.solde	
+	p = int(p)
+	for elt in liste_de_clients:
+		if elt.id==p:
+			return str(elt.solde)
+	return "this client does not exist"
 
 
-if __name__ == '_main_':
+if __name__ == '__main__':
 	if len(sys.argv) > 1:
 		if sys.argv[1] == "check_syntax":
 			print("Build [ OK ]")
