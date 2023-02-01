@@ -13,5 +13,5 @@ jobs:
       uses: docker/build-push-action@v3.2.0
       with:
         context: .
-        tags: monimage:{{github.ref_name}}
+        tags: monimage:${{github.ref_name}}
         push: true
