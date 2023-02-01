@@ -8,7 +8,7 @@ COPY requirements.txt .
 RUN pip install -r requirements.txt
 
 #Copie des fichiers de test
-COPY src .
+COPY . .
 
 #Préparation du lancement
 EXPOSE 80
