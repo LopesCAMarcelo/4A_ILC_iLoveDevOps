@@ -32,6 +32,18 @@ Dans un soucis de compréhension, nous avons choisi ce sujet qui nous semblait l
 	* "/affiche-transaction-<p>": affiche pour une personne donnée toutes les transactions dont elle est soit émettrice, soit receveuse, prend en paramètre 1 argument qui est l'id de la personne.
 	* "/affiche-solde": affiche pour une personne donnée son solde, prend en paramètre 1 argument qui est l'id de la personne.
 
+## Fichier CSV ##
+
+Le fichier est ouvert à l'aide de la librairie csv, ensuit celui-ci est lu en imposant le délimiteur à ','. La fin de chaque ligne dans le fichier est déterminée par un '\n'. Pour chaque ligne dans le fichier (à l'exception de la première qui donne juste un nom pour chaquie colonne), nous venon lire les valeurs des différents paramètres. Le premier et le dernier paramètre sont lus en tant qu'integer et correspondent à l'id de la personne et le solde sur son compte, le second et le trousièmee sont lus en tant que chaîne de caractère et correspondent respectivement au nom et au prenom de la personne (à noter que l'indexation des paramètres commence à 0). On vient ensuite créer l'objet de la classe Personne avec ces paramètres et l'ajouter à la liste de personnes de l'application. 
+
+Si l'envie vous viens de modifier le fichier csv celui-ci doit avoir des lignes de la forme suivante:
+→ idPersonne,nomPersonne,prenomPersonne,soldePersonne
+A l'exception de la première ligne qui doit être:
+→ id,nom,prenom,solde
+
+:exclamation: Ne pas mettre d'espaces dans le fichier CSV, en effet cela peut éventuellement engendrer des erreurs !
+:exclamation: Le délimiteur utilisé au sein du code est ',' et non ';' !
+
 ## Hachage: ##
 
 Nous avons choisi d'utiliser SHA-256 pour plusieurs raisons:
