@@ -6,7 +6,6 @@ on:
       - 'v*.*.*'
 
 env:
-  REGISTRY: ghcr.io
   IMAGE_NAME: ${{ github.repository }}
 
 jobs:
@@ -23,13 +22,11 @@ jobs:
          username: ${{ secrets.DOCKER_USERNAME }}
          password: ${{ secrets.DOCKER_PASSWORD }}
         
-      - name: Extract metadata for the Docker image
-        id: meta
-        uses: docker/metadata-action@v4
-        with:
-         images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
+      - name: get TAG_NAME
+        id: set-env
+        run: echo "::set-env name=TAG_NAME::$(echo $GITHUB_REF | awk -F '/' '{print $3}')"
       
       - name: Build the tagged Docker image
-        run: docker build . --file Dockerfile --tag image:${{ steps.meta.outputs.images }}
+        run: docker build . --file Dockerfile --tag ${{ env.IMAGE_NAME }}:${{ steps.set-env.outputs.TAG_NAME }}
       - name: Push the tagged Docker image
-        run: docker push image:${{ steps.meta.outputs.images }}
+        run: docker push ${{ env.IMAGE_NAME }}:${{ steps.set-env.outputs.TAG_NAME }}
