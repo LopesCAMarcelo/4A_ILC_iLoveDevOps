@@ -58,7 +58,7 @@ def transaction(p1,p2,somme):
 
 		client1.solde -= s
 		client2.solde += s
-		liste_transaction_personnes.append([client1.id,client2.id])
+		liste_transaction_personnes.append([client1.id,client2.id,t,s,h])
 		liste_transaction.append(client1.nom + " " + client1.prenom + " a envoye " + str(somme) + " a " + client2.nom + " " + client2.prenom + " hash: " + str(h) + ", t: "+ str(t) + ".")
 		return "Transaction done !"
 	elif doesClient1Exist and doesClient2Exist:
@@ -93,6 +93,28 @@ def affichage_solde(p):
 		if elt.id==p:
 			return str(elt.solde)
 	return "this client does not exist"
+
+
+@app.route("/intégriteDesTransactions", methods=['GET'])
+def intégriteDesTransactions():
+	display = ""
+
+	for transaction in liste_transaction:
+		client1 = transaction[0]
+		client2 = transaction[1]
+		temps = transaction[2]
+		somme = transaction[3]
+		transac = (client1,client2,temps,somme)
+		h = hashlib.sha256(str(transac).encode()).hexdigest()
+		
+		if h != transaction[4]:
+			display += "La Transaction : " + str(transaction[4]) + " : " + " n'est pas valide !!!!!" + "\n"
+		
+	if display == "":
+		display = "Toutes les transactions sont valides ! \n"
+		
+	return display
+
 
 
 if __name__ == '__main__':
