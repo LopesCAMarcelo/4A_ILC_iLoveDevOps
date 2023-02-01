@@ -77,7 +77,7 @@ def affichage_solde(p):
 	return p.solde	
 
 
-if _name_ == '_main_':
+if __name__ == '_main_':
 	if len(sys.argv) > 1:
 		if sys.argv[1] == "check_syntax":
 			print("Build [ OK ]")
