@@ -33,4 +33,4 @@ jobs:
         run: pip install Flask
       
       - name: Build
-        run: python src/main.py build
+        run: python main.py build
