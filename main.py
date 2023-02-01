@@ -115,6 +115,15 @@ def intégriteDesTransactions():
 		
 	return display
 
+#permet de corriger le hash avec le temps actuelle 
+def corectionHash(transaction):
+	client1 = transaction[0]
+	client2 = transaction[1]
+	t = datetime.now()
+	s = transaction[3]
+	transac = (client1,client2,t,s)
+	h = hashlib.sha256(str(transac).encode()).hexdigest()
+	return h
 
 
 if __name__ == '__main__':
