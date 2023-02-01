@@ -46,3 +46,7 @@ Nous avons choisi d'utiliser SHA-256 pour plusieurs raisons:
 [![ForTheBadge built-with-love](http://ForTheBadge.com/images/badges/built-with-love.svg)](https://GitHub.com/Naereen/)
 [![forthebadge](https://forthebadge.com/images/badges/contains-cat-gifs.svg)](https://forthebadge.com)
 [![ForTheBadge winter-is-coming](http://ForTheBadge.com/images/badges/winter-is-coming.svg)](http://ForTheBadge.com)
+
+[![Build and Test](https://github.com/LopesCAMarcelo/4A_ILC_iLoveDevOps/actions/workflows/buildAndTest.yml/badge.svg)](https://github.com/LopesCAMarcelo/4A_ILC_iLoveDevOps/actions/workflows/buildAndTest.yml)
+[![Build Docker Image](https://github.com/LopesCAMarcelo/4A_ILC_iLoveDevOps/actions/workflows/buildDockerImageManually.yaml/badge.svg)](https://github.com/LopesCAMarcelo/4A_ILC_iLoveDevOps/actions/workflows/buildDockerImageManually.yaml)
+[![Docker push GCR](https://github.com/LopesCAMarcelo/4A_ILC_iLoveDevOps/actions/workflows/pushDockerImagesCGR.yml/badge.svg)](https://github.com/LopesCAMarcelo/4A_ILC_iLoveDevOps/actions/workflows/pushDockerImagesCGR.yml)
