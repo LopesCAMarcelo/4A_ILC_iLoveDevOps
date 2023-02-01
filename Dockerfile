@@ -9,11 +9,11 @@ RUN apt-get update
 RUN apt-get install python3-pip -y
 RUN pip install -r requirements.txt
 
-ENV FLASK_APP=src/main.py
+ENV FLASK_APP=main.py
 ENV FLASK_ENV=development
 
 #Copie des fichiers de test
-COPY src .
+COPY . .
 
 #Préparation du lancement
 EXPOSE 5000
