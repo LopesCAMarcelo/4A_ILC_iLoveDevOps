@@ -10,4 +10,8 @@ jobs:
       uses: actions/checkout@v2
       
     - name: Build Docker images
-      run: docker build -t myimage:${{ env.GITHUB_SHA }} .
+      uses: docker/build-push-action@v3.2.0
+      with:
+        context: .
+        tags: monimage:${{ env.GITHUB_SHA }}
+        push: true
