@@ -32,7 +32,7 @@ jobs:
           # Emplacement du Dockerfile
           file: Dockerfile
           #tags: ${{ steps.tag.outputs.value }}
-          tags: eu.gcr.io/esirem/4a_ilc/peyron_Lopes/ilovedevops:${{ github.ref_name }}
+          tags: eu.gcr.io/esirem/4a_ilc/peyron_lopes/ilovedevops:${{ github.ref_name }}
           # Emplacement des fichiers 
           context: ""
           push: true
