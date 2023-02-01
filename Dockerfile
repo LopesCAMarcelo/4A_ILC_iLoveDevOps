@@ -8,9 +8,9 @@ COPY requirements.txt .
 RUN pip install -r requirements.txt
 
 #Copie des fichiers de test
-COPY test .
+COPY src .
 
 #Préparation du lancement
 EXPOSE 80
 ENV PORT=80
-ENTRYPOINT ["python", "test/main.py"]
+ENTRYPOINT ["python", "src/main.py"]
