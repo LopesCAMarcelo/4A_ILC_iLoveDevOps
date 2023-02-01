@@ -1,6 +1,8 @@
 from flask import Flask
 from models.personne import Personne
 import csv
+import datetime
+import hashlib
 
 app = Flask(__name__)
 
@@ -44,19 +46,24 @@ def transaction(p1,p2,somme):
 			client2 = elt
 			doesClient2Exist = True
 	if doesClient1Exist and doesClient2Exist and client1.solde > somme:
-		client1.solde -= somme
-		client2.solde += somme
+		t = datetime.strptime(datetime.datetime.now(), "%Y-%m-%d %H:%M:%S")
+		s = somme
+		transac = (Client1, Client2, t, s)
+		h = hashlib.sha256(str(transac).encode()).hexdigest()
+
+		client1.solde -= s
+		client2.solde += s
 		liste_transaction_personnes.append([p1,p2])
-		liste_transaction.append(p1.nom + " " + p1.prenom + " a envoyé " + str(somme) + " à " + p2.nom + " " + p2.prenom + ".")
-		return "Transaction done !!!"
+		liste_transaction.append(p1.nom + " " + p1.prenom + " a envoyé " + str(somme) + " à " + p2.nom + " " + p2.prenom + "hash: " + str(h) + ", t: "+ str(t) + ".")
+		return "Transaction done !"
 	elif doesClient1Exist and doesClient2Exist:
-		return "Not enough money !!!"
+		return "Not enough money !"
 	elif doesClient2Exist:
-		return "Client 1 does not exist !!"
+		return "Client 1 does not exist !"
 	elif doesClient1Exist:
-		return "Client 2 does not exist !!"
+		return "Client 2 does not exist !"
 	else:
-		return "The clients does not exist !!"
+		return "The clients does not exist !"
 
 @app.route('/affiche-transactions', methods=['GET'])
 def affichage_transactions():
