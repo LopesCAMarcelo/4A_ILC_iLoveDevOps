@@ -16,4 +16,4 @@ jobs:
         password: ${{ secrets.DOCKER_PASSWORD }}
       
     - name: Build Docker images
-      run: docker build . --file Dockerfile --tag monImage
+      run: docker build . --file Dockerfile --tag monimage
