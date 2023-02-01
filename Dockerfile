@@ -5,12 +5,16 @@ WORKDIR /app
 
 #Copie des bibliothèques requises de la machine hôte vers le conteneur
 COPY requirements.txt .
+RUN apt-get update
+RUN apt-get install python3-pip -y
 RUN pip install -r requirements.txt
+
+ENV FLASK_APP=src/main.py
+ENV FLASK_ENV=development
 
 #Copie des fichiers de test
 COPY src .
 
 #Préparation du lancement
-EXPOSE 80
-ENV PORT=80
-ENTRYPOINT ["python", "src/main.py"]
+EXPOSE 5000
+CMD ["flask", "run"]
