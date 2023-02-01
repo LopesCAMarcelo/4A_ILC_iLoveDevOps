@@ -32,6 +32,14 @@ Dans un soucis de compréhension, nous avons choisi ce sujet qui nous semblait l
 	* "/affiche-transaction-<p>": affiche pour une personne donnée toutes les transactions dont elle est soit émettrice, soit receveuse, prend en paramètre 1 argument qui est l'id de la personne.
 	* "/affiche-solde": affiche pour une personne donnée son solde, prend en paramètre 1 argument qui est l'id de la personne.
 
+## Hachage: ##
+
+Nous avons choisi d'utiliser SHA-256 pour plusieurs raisons:
+* Il est le premier à apparaître sur la documentation de la librairie (RTFM)
+* Il est l'un des plus documentés
+* Il est grandement accepté et utilisé
+* Il présente de très bonnes caractéristiques que ce soit en sécurité et en efficacité
+
 
 ### We are successful: ###
 
