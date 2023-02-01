@@ -19,9 +19,12 @@ jobs:
         
       - name: Extract metadata for the Docker image
         id: meta
-        uses: docker/metadata-action@98669ae865ea3cffbcbaa878cf57c20bbf1c6c38
+        uses: docker/metadata-action@v4
         with:
          images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
+      
+      - name: get TAG_NAME
+        run: echo "::set-env name=TAG_NAME::$(echo ${GITHUB_REF} | cut -d / -f 3      
         
       - name: Log into the Container registry
         uses: docker/login-action@v1
@@ -30,6 +33,6 @@ jobs:
          password: ${{ secrets.DOCKER_PASSWORD }}
       
       - name: Build the tagged Docker image
-        run: docker build . --file Dockerfile --tag ${{ env.IMAGE_NAME }}:${{ steps.meta.outputs.tags }}
+        run: docker build . --file Dockerfile --tag ${{ env.IMAGE_NAME }}:vtest
       - name: Push the tagged Docker image
-        run: docker push ${{ env.IMAGE_NAME }}:${{ steps.meta.outputs.tags }}
+        run: docker push ${{ env.IMAGE_NAME }}:vtest
