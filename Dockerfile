@@ -13,4 +13,4 @@ COPY src .
 #Préparation du lancement
 EXPOSE 80
 ENV PORT=80
-ENTRYPOINT ["python", "main.py"]
+ENTRYPOINT ["python", "src/main.py"]
