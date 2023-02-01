@@ -9,12 +9,5 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v2
       
-    - name: Build and push Docker images
-      uses: docker/build-push-action@v3.2.0
-      with:
-        # Emplacement du Dockerfile
-        file: tds/correction_td3-4/Dockerfile
-        tags: eu.gcr.io/esirem/test/test:${{ github.ref_name }}
-        # Emplacement des fichiers 
-        context: tds/correction_td3-4
-        push: true
+    - name: Build Docker images
+      run: docker build -t myimage:${{ env.GITHUB_SHA }} .
