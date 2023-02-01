@@ -48,15 +48,15 @@ def transaction(p1,p2,somme):
 		client2.solde += somme
 		liste_transaction_personnes.append([p1,p2])
 		liste_transaction.append(p1.nom + " " + p1.prenom + " a envoyé " + str(somme) + " à " + p2.nom + " " + p2.prenom + ".")
-		return "Transaction done !"
+		return "Transaction done !!!"
 	elif doesClient1Exist and doesClient2Exist:
-		return "Not enough money !"
+		return "Not enough money !!!"
 	elif doesClient2Exist:
-		return "Client 1 does not exist !"
+		return "Client 1 does not exist !!"
 	elif doesClient1Exist:
-		return "Client 2 does not exist !"
+		return "Client 2 does not exist !!"
 	else:
-		return "The clients does not exist !"
+		return "The clients does not exist !!"
 
 @app.route('/affiche-transactions', methods=['GET'])
 def affichage_transactions():
