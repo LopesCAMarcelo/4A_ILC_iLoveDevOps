@@ -30,6 +30,6 @@ jobs:
          images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
       
       - name: Build the tagged Docker image
-        run: docker build . --file Dockerfile --tag image:${{ steps.meta.outputs.tags }}
+        run: docker build . --file Dockerfile --tag image:${{ steps.meta.outputs.images }}
       - name: Push the tagged Docker image
-        run: docker push image:${{ steps.meta.outputs.tags }}
+        run: docker push image:${{ steps.meta.outputs.images }}
