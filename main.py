@@ -34,7 +34,7 @@ def easyFunc():
 	liste_to_show = []
 	for elt in liste_de_clients:
 		liste_to_show.append(str(elt.id) + " -> " + elt.nom + " " + elt.prenom + " possede " + str(elt.solde) + "euros.\n")
-	return liste_to_show
+	return str(liste_to_show)
  
 @app.route('/transaction-<p1>-<p2>-<somme>', methods=['PUT','GET'])
 def transaction(p1,p2,somme):
@@ -72,7 +72,7 @@ def transaction(p1,p2,somme):
 
 @app.route('/affiche-transactions', methods=['GET'])
 def affichage_transactions():
-	return liste_transaction
+	return str(liste_transaction)
 
 @app.route('/affiche-transactions-<p>', methods=['GET','PUT'])
 def affichage_transactions_client(p):
@@ -84,7 +84,7 @@ def affichage_transactions_client(p):
 			liste_transaction_client_index.append(i)
 	for index in liste_transaction_client_index :
 		liste_transaction_client.append(liste_transaction[index])
-	return liste_transaction_client
+	return str(liste_transaction_client)
 
 @app.route('/affiche-solde-<p>', methods=['GET','PUT'])
 def affichage_solde(p):
