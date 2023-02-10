@@ -6,7 +6,7 @@ __Peyron Calvin__
 __Lopes Marcelo__
 *Spécialité : ILC*
 
-![Incredible badge - Projet terminé !](https://img.shields.io/badge/Incredible_badge-Projet_terminé_!-blue?style=for-the-badge)
+![Incredible badge - Projet terminé !](https://img.shields.io/badge/Incredible_badge-Projet_terminé_!-blue)
 [![made-with-python](https://img.shields.io/badge/Made%20with-Python-1f425f.svg)](https://www.python.org/)
 [![Buymeacoffee](https://badgen.net/badge/icon/buymeacoffee?icon=buymeacoffee&label)](https://https://www.buymeacoffee.com/)
 [![Awesome Badges](https://img.shields.io/badge/badges-awesome-green.svg)](https://github.com/Naereen/badges)
